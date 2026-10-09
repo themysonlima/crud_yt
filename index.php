@@ -1,5 +1,5 @@
 <?php
-require_once 'pessoa.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/crud_yt/models/pessoa.php';
 
 $lista = Pessoa::listar();
 
@@ -27,7 +27,7 @@ $lista = Pessoa::listar();
             <tr>
                 <th>Nome</th>
                 <th colspan="2">
-                    <a href="pessoa_add_view.php" class="btn btn-success">Adicionar</a>
+                    <a href="/crud_yt/views/pessoa_add_view.php" class="btn btn-success">Adicionar</a>
                 </th>    
             </tr>
 
@@ -35,18 +35,21 @@ $lista = Pessoa::listar();
                 <tr>
                     <td><?= $pessoa['nome'] ?></td>
                     <td>
-                        <a href="pessoa_edit_view.php?id=<?= $pessoa['id_pessoa'] ?>" class="btn btn-warning">Editar</a></td>
+                        <a href="/crud_yt/views/pessoa_edit_view.php?id=<?= $pessoa['id_pessoa'] ?>" class="btn btn-warning">
+                            <span class= "material-symbols-outlined">edit</span> Editar
+                        </a>
+                    </td>
                     <td>
-                        <form action="pessoa_del_controller.php" method="post" onsubmit="return confirm('Voce tem certeza que deseja deletar o registro?')">
+                        <form action="/crud_yt/controllers/pessoa_del_controller.php" method="post" onsubmit="return confirm('Voce tem certeza que deseja deletar o registro?')">
                             <input type="hidden" name="id" value="<?= $pessoa['id_pessoa']?>">
-                            <button type="submit" class="btn btn-danger">Deletar</button>
+                            <button type="submit" class="btn btn-danger">
+                                <span class="material-symbols-outlined">delete</span > Deletar
+                            </button>
                         </form>
                     </td>
-                
                 </tr>
             <?php endforeach; ?>
         </table>
     </section>
-
 </body>
 </html>

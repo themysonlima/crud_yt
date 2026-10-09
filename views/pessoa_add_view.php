@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +20,7 @@
 
     <section class="d-flex justify-content-center">
         <section class="m-3 w-50 d-flex justify-content-center">
-            <form action="pessoa_add_controller.php" method="post">
+            <form action="/crud_yt/controllers/pessoa_add_controller.php" method="post">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome">

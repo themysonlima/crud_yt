@@ -1,5 +1,5 @@
 <?php
-require_once 'conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/crud_yt/configs/conexao.php';
 
 class Pessoa
 {
@@ -24,6 +24,17 @@ class Pessoa
 
     public function getId(){
         return $this->id_pessoa;
+    }
+
+    public function carregar() {
+        $conexao = Conexao::conectar();
+        $sql = "SELECT * FROM pessoa WHERE id_pessoa = :id";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindValue(':id', $this->getId());
+        $stmt->execute();
+        $resultado = $stmt->fetch();
+
+        $this->setNome($resultado['nome']);
     }
 
     public function criar () {
@@ -51,8 +62,21 @@ class Pessoa
             echo $e->getMessage();
         }
     }
+    
+    public function atualizar () {
+        try {
+            $conexao = Conexao::conectar();
+            $sql = "UPDATE pessoa SET nome = :nome WHERE id_pessoa =id";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':nome', $this->getNome());
+            $stmt->bindValue(':id', $this->getId());
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
-     public function deletar(){
+    public function deletar(){
         try {
             $conexao = Conexao::conectar();
             $sql = "DELETE FROM pessoa WHERE id_pessoa = :id";
