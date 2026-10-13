@@ -24,7 +24,7 @@ $pessoa = new Pessoa($id);
 
 <body>
     <section class="m-3">
-        <a href="index.php">Voltar</a>
+        <a href="/crud_yt/index.php">Voltar</a>
     </section>
 
     <section class="d-flex justify-content-center">

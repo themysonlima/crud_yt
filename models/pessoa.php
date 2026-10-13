@@ -10,6 +10,7 @@ class Pessoa
     {
         if($id){
             $this->id_pessoa = $id;
+            $this->carregar();
         }
     }
 
