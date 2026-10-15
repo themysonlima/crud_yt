@@ -67,7 +67,7 @@ class Pessoa
     public function atualizar () {
         try {
             $conexao = Conexao::conectar();
-            $sql = "UPDATE pessoa SET nome = :nome WHERE id_pessoa =id";
+            $sql = "UPDATE pessoa SET nome = :nome WHERE id_pessoa = :id";
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':nome', $this->getNome());
             $stmt->bindValue(':id', $this->getId());

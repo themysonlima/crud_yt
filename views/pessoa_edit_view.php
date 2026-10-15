@@ -33,7 +33,7 @@ $pessoa = new Pessoa($id);
                 <input type="hidden" name="id" value="<?= $pessoa->getId() ?>">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" value="">
+                    <input type="text" class="form-control" id="nome" name="nome" value="<?= $pessoa->getNome() ?>">
                  </div>
                  
                  <div class="mb-3">
